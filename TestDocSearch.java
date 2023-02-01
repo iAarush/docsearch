@@ -1,8 +1,8 @@
-import static org.junit.Assert.*;
-import org.junit.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.io.IOException;
+import static org.junit.Assert.*;
+import org.junit.*;
 
 public class TestDocSearch {
 	@Test 

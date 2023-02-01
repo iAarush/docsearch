@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
+//import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,7 +16,7 @@ class FileHelpers {
         if(f.isDirectory()) {
             File[] paths = f.listFiles();
             for(File subFile: paths) {
-                result.addAll(getFiles(subFile.toPath()));
+                result.addAll(FileHelpers.getFiles(subFile.toPath()));
             }
         }
         else {
@@ -34,6 +34,7 @@ class Handler implements URLHandler {
     Handler(String directory) throws IOException {
       this.base = Paths.get(directory);
     }
+    @Override
     public String handleRequest(URI url) throws IOException {
        List<File> paths = FileHelpers.getFiles(this.base);
        if (url.getPath().equals("/")) {
